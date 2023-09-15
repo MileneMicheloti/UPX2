@@ -3,7 +3,7 @@
 ## Status do Projeto: ✔️ Concluído ⚠️ Espera ❌ Cancelado
 
 ## Tópicos
-🔹 Descrição do projeto 
+🔹 Descrição do projeto ✔️
 
 🔹 Funcionalidades
 
@@ -32,10 +32,11 @@
 
 ...
 
-Insira os tópicos do README em links para facilitar a navegação do leitor
 
 ## Descrição do projeto
-Descrição breve do projeto compondo um paragrafo ou dois.
+O nosso projeto é um banco de dados para instituições de caridade. Ele foi feito para as instituições conseguirem manter os registros das doações mais organizadas e simples de acessar, conseguindo consultar com mais facilidade os itens que foram e que precisam ser doados. 
+ A primeira versão do projeto é apenas a parte do banco de dados com uma tela de acesso, que será administrada por dois usuários da instituição, as funções serão de adicionar, excluir, e consultar os itens que estão no estoque, e os que estão faltando. Apenas o usuário principal conseguirá excluir os dados, isso foi inserido para que não aconteça nenhum imprevisto indesejado. Nós também já temos planos futuros para mais implementações que iremos fazer nas próximas versões, para facilitar ainda mais a utilização do nosso programa.
+
 
 ## Funcionalidades ⚙️
 ✔️ Funcionalidade 1
