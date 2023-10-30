@@ -11,6 +11,7 @@ package com.mycompany.doaki;
 public class Doaki {
 
     public static void main(String[] args) {
+        System.out.println("Hello World!");        
         System.out.println("Hello World!");
         System.out.println("teste");
     }
