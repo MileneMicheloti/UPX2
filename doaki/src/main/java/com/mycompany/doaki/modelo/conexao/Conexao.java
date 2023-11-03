@@ -1,5 +1,4 @@
-
-package com.mycompany.doaki.upx.modelo.dao;
+package com.mycompany.doaki.modelo.conexao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

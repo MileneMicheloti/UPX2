@@ -1,5 +1,4 @@
-
-package com.mycompany.doaki.upx.modelo.dao;
+package com.mycompany.doaki.modelo.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +7,8 @@ import java.sql.SQLException;
 public class ConexaoMysql implements Conexao {
 
     private final String USUARIO = "root";
-    private final String SENHA = "root";
-    private final String URL = "jdbc:mysql://localhost/doaki-banco";
+    private final String SENHA = "password";
+    private final String URL = "jdbc:mysql://localhost/doaki";
     private Connection conectar;
 
     @Override
@@ -19,5 +18,4 @@ public class ConexaoMysql implements Conexao {
         }
         return conectar;
     }
-
 }

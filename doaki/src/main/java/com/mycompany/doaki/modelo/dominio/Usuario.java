@@ -3,16 +3,15 @@ package com.mycompany.doaki.modelo.dominio;
 
 import java.util.Objects;
 
-
 public class Usuario {
-        private Long id;
-        private String nome;
-        private String senha;
-        private String usuario;
-        private Perfil perfil;
-        private boolean estado;
+    private Long id;
+    private String nome;
+    private String senha;
+    private String usuario;
+    private Perfil perfil;
+    private boolean estado;
 
-    public Usuario() { //por padrão ao criar um usuário o estado é true
+    public Usuario() { // por padrão ao criar um usuário o estado é true
         this.estado = true;
     }
 
@@ -24,7 +23,7 @@ public class Usuario {
         this.perfil = perfil;
         this.estado = true;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -94,13 +93,16 @@ public class Usuario {
         final Usuario other = (Usuario) obj;
         return Objects.equals(this.id, other.id);
     }
+
     // quando clicarmos no estado automaticamente ele recebe o true
-    public void reset() { 
+    public void reset() {
         this.estado = true;
     }
-    // ao clicar para mudar o estado, se ele estiver falso vai para verdadeiro e vice versa
-    public void mudarEstado(){
-        this.estado =  !this.estado;
+
+    // ao clicar para mudar o estado, se ele estiver falso vai para verdadeiro e
+    // vice versa
+    public void mudarEstado() {
+        this.estado = !this.estado;
     }
-    
+
 }
