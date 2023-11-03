@@ -1,9 +1,9 @@
 # DoaKi
 ## Versão: 1.0 
-## Status do Projeto:⚠️ Espera
+## Status do Projeto: ✔️ Concluído ⚠️ Espera ❌ Cancelado
 
 ## Tópicos
-🔹 Descrição do projeto
+🔹 Descrição do projeto ✔️
 
 🔹 Funcionalidades
 
