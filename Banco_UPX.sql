@@ -47,62 +47,6 @@ UNLOCK TABLES;
 -- Table structure for table `doacao`
 --
 
-DROP TABLE IF EXISTS `doacao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `doacao` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `doador_id` bigint NOT NULL,
-  `usuario_id` bigint NOT NULL,
-  `data_hora_doado` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `fk_doacao_doador` (`doador_id`),
-  KEY `fk_doacao_usuario` (`usuario_id`),
-  CONSTRAINT `fk_doacao_doador` FOREIGN KEY (`doador_id`) REFERENCES `doador` (`id`),
-  CONSTRAINT `fk_doacao_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `doacao`
---
-
-LOCK TABLES `doacao` WRITE;
-/*!40000 ALTER TABLE `doacao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `doacao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `doacao_item`
---
-
-DROP TABLE IF EXISTS `doacao_item`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `doacao_item` (
-  `doacao_id` bigint NOT NULL,
-  `item_id` bigint NOT NULL,
-  `quantidade` int NOT NULL,
-  KEY `fk_doacao_item_doacao` (`doacao_id`),
-  KEY `fk_doacao_item_item` (`item_id`),
-  CONSTRAINT `fk_doacao_item_doacao` FOREIGN KEY (`doacao_id`) REFERENCES `doacao` (`id`),
-  CONSTRAINT `fk_doacao_item_item` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `doacao_item`
---
-
-LOCK TABLES `doacao_item` WRITE;
-/*!40000 ALTER TABLE `doacao_item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `doacao_item` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `doador`
---
-
 DROP TABLE IF EXISTS `doador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -183,6 +127,62 @@ UNLOCK TABLES;
 
 --
 -- Dumping events for database 'doaki'
+--
+
+DROP TABLE IF EXISTS `doacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `doacao` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `doador_id` bigint NOT NULL,
+  `usuario_id` bigint NOT NULL,
+  `data_hora_doado` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `fk_doacao_doador` (`doador_id`),
+  KEY `fk_doacao_usuario` (`usuario_id`),
+  CONSTRAINT `fk_doacao_doador` FOREIGN KEY (`doador_id`) REFERENCES `doador` (`id`),
+  CONSTRAINT `fk_doacao_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doacao`
+--
+
+LOCK TABLES `doacao` WRITE;
+/*!40000 ALTER TABLE `doacao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `doacao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doacao_item`
+--
+
+DROP TABLE IF EXISTS `doacao_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `doacao_item` (
+  `doacao_id` bigint NOT NULL,
+  `item_id` bigint NOT NULL,
+  `quantidade` int NOT NULL,
+  KEY `fk_doacao_item_doacao` (`doacao_id`),
+  KEY `fk_doacao_item_item` (`item_id`),
+  CONSTRAINT `fk_doacao_item_doacao` FOREIGN KEY (`doacao_id`) REFERENCES `doacao` (`id`),
+  CONSTRAINT `fk_doacao_item_item` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doacao_item`
+--
+
+LOCK TABLES `doacao_item` WRITE;
+/*!40000 ALTER TABLE `doacao_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `doacao_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doador`
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

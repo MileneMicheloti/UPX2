@@ -1,4 +1,3 @@
-
 package com.mycompany.doaki.modelo.dao;
 
 import java.sql.PreparedStatement;
@@ -6,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.mycompany.doaki.modelo.conexao.Conexao;
 import com.mycompany.doaki.modelo.conexao.ConexaoMysql;
@@ -19,7 +20,7 @@ public class UsuarioDao {
     }
 
     public String salvar(Usuario usuario) { // usuario dando erro aaaa
-        return usuario.getId() == 0 ? adicionar(usuario) : editar(usuario);
+        return usuario.getId() == 0L ? adicionar(usuario) : editar(usuario);
     }
 
     private String adicionar(Usuario usuario) {
@@ -47,7 +48,7 @@ public class UsuarioDao {
     }
 
     private String editar(Usuario usuario) { // vai entrar aqui caso escolhenmos o editar
-        String sql = "UPADTE categoria SET nome = ?, usuario = ?, senha = ?, perfil = ?, estado = ? WHERE id = ?"; // faz
+        String sql = "UPADTE usuario SET nome = ?, usuario = ?, senha = ?, perfil = ?, estado = ? WHERE id = ?"; // faz
                                                                                                                    // a
                                                                                                                    // consulta
                                                                                                                    // sql
@@ -68,16 +69,19 @@ public class UsuarioDao {
 
             return resultado == 1 ? "Usuario editado com sucesso" : "Nao foi possivel editar usuario";
         } catch (SQLException e) {
-            return String.format("Erro; &s", e.getMessage());
+            return String.format("Erro; %s", e.getMessage());
         }
     }
 
     private void preencherValoresNoPreparedStatement(PreparedStatement prepareStatement, Usuario usuario)
             throws SQLException {
-        prepareStatement.setString(1, usuario.getNome()); // esses valores serão editados quano selecionar o editar e ou
-                                                          // inserir;
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String senhaCrypt = passwordEncoder.encode(usuario.getSenha());
+
+        prepareStatement.setString(1, usuario.getNome());
         prepareStatement.setString(2, usuario.getUsuario());
-        prepareStatement.setString(3, usuario.getSenha());
+        prepareStatement.setString(3, senhaCrypt);
         prepareStatement.setString(4, usuario.getPerfil().name());
         prepareStatement.setBoolean(5, usuario.isEstado());
 
