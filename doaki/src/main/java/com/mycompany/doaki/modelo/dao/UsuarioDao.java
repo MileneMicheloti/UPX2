@@ -116,7 +116,7 @@ public class UsuarioDao {
         usuario.setNome(result.getString("nome"));
         usuario.setUsuario(result.getString("usuario"));
         usuario.setSenha(result.getString("senha"));
-        usuario.setPerfil(result.getObject("Perfil", Perfil.class));
+        usuario.setPerfil(Perfil.valueOf(result.getString("perfil")));
         usuario.setEstado(result.getBoolean("Estado"));
 
         return usuario;
@@ -141,7 +141,7 @@ public class UsuarioDao {
     }
 
     public Usuario buscarUsuarioPeloUsuario(String usuario) {
-        String sql = String.format("SELECT * FROM usuario WHERE id = %s", usuario);
+        String sql = String.format("SELECT * FROM usuario WHERE usuario = '%s'", usuario);
         try {
             ResultSet result = conexao.obterConexao().prepareStatement(sql).executeQuery(sql);
 
